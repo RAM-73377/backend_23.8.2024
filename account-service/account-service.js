@@ -5,7 +5,7 @@ const config = require('../config/config.json');
 const db = require('../config/db-connection');
 const userService = require('./user-service');
 
-app.use(express.json()); // Add this line to parse request body as JSON
+app.use(express.json()); 
 
 app.post('/create-account', async (req, res) => {
   try {
@@ -41,7 +41,6 @@ app.delete('/delete-account/:id', async (req, res) => {
   }
 });
 
-// Add error handling middleware
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ error: 'Internal Server Error' });
